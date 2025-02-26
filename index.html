@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP Bank Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">CSP Bank Tools by Shubham</header>
+
+    <main class="container">
+        <!-- Notes Calculator -->
+        <section class="notes-container">
+            <h2>Notes Calculator</h2>
+            <div class="notes-grid">
+                <div><label>500 ×</label><input type="number" id="note-500" oninput="calculateTotalNotes()"></div>
+                <div><label>200 ×</label><input type="number" id="note-200" oninput="calculateTotalNotes()"></div>
+                <div><label>100 ×</label><input type="number" id="note-100" oninput="calculateTotalNotes()"></div>
+                <div><label>50 ×</label><input type="number" id="note-50" oninput="calculateTotalNotes()"></div>
+                <div><label>20 ×</label><input type="number" id="note-20" oninput="calculateTotalNotes()"></div>
+                <div><label>10 ×</label><input type="number" id="note-10" oninput="calculateTotalNotes()"></div>
+            </div>
+            <div id="notes-breakdown"></div>
+            <div id="total-notes">Total: ₹0</div>
+            <button class="clear-btn" onclick="clearNotesCalculator()">Clear Notes</button>
+        </section>
+
+        <!-- Bank Balance Calculator -->
+        <section class="bank-container">
+            <h2>Passbook Balance Calculator</h2>
+            <label>Total Cash (Physical)</label>
+            <input type="number" id="totalCash">
+            <label>Opening Balance</label>
+            <input type="number" id="openingBalance">
+            <label>Rupees (Personal Use)</label>
+            <input type="number" id="personalUse">
+            <label>Total Cash Withdrawal</label>
+            <input type="number" id="cashWithdrawal">
+            <label>Cash (Physical)</label>
+            <input type="number" id="physicalCash">
+            <button onclick="calculateBalance()">Calculate Balance</button>
+            <button class="clear-btn" onclick="clearBalanceCalculator()">Clear Balance</button>
+            <div id="bank-result"></div>
+        </section>
+
+        <!-- Calculator -->
+        <section class="calculator">
+            <h2>Calculator</h2>
+            <input type="text" id="calculator-screen" disabled>
+            <div class="calculator-buttons">
+                <button onclick="updateScreen('1')">1</button>
+                <button onclick="updateScreen('2')">2</button>
+                <button onclick="updateScreen('3')">3</button>
+                <button onclick="updateScreen('+')">+</button>
+                <button onclick="updateScreen('4')">4</button>
+                <button onclick="updateScreen('5')">5</button>
+                <button onclick="updateScreen('6')">6</button>
+                <button onclick="updateScreen('-')">-</button>
+                <button onclick="updateScreen('7')">7</button>
+                <button onclick="updateScreen('8')">8</button>
+                <button onclick="updateScreen('9')">9</button>
+                <button onclick="updateScreen('*')">*</button>
+                <button onclick="updateScreen('00')">00</button>
+                <button onclick="updateScreen('0')">0</button>
+                <button onclick="clearScreen()">C</button>
+                <button onclick="updateScreen('/')">/</button>
+                <button onclick="backspace()">←</button>
+                <button onclick="calculateResult()">=</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
