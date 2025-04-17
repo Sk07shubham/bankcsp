@@ -27,22 +27,23 @@
         </section>
 
         <!-- Bank Balance Calculator -->
-        <section class="bank-container">
-            <h2>Passbook Balance Calculator</h2>
-            <label>Total Cash (Physical)</label>
-            <input type="number" id="totalCash">
-            <label>Opening Balance</label>
-            <input type="number" id="openingBalance">
-            <label>Rupees (Personal Use)</label>
-            <input type="number" id="personalUse">
-            <label>Total Cash Withdrawal</label>
-            <input type="number" id="cashWithdrawal">
-            <label>Cash (Physical)</label>
-            <input type="number" id="physicalCash">
-            <button onclick="calculateBalance()">Calculate Balance</button>
-            <button class="clear-btn" onclick="clearBalanceCalculator()">Clear Balance</button>
-            <div id="bank-result"></div>
-        </section>
+<section class="bank-container">
+    <h2>Passbook Balance Calculator</h2>
+    <label>Total Cash (Physical)</label>
+    <input type="text" id="totalCash">
+    <label>Opening Balance</label>
+    <input type="text" id="openingBalance">
+    <label>Rupees (Personal Use)</label>
+    <input type="text" id="personalUse">
+    <label>Total Cash Withdrawal</label>
+    <input type="text" id="cashWithdrawal">
+    <label>Cash (Physical)</label>
+    <input type="text" id="physicalCash">
+    <button onclick="calculateBalance()">Calculate Balance</button>
+    <button class="clear-btn" onclick="clearBalanceCalculator()">Clear Balance</button>
+    <div id="bank-result"></div>
+</section>
+
 
         <!-- Calculator -->
         <section class="calculator">
