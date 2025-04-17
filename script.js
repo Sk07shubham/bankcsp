@@ -20,17 +20,29 @@ function clearNotesCalculator() {
   document.getElementById('total-notes').innerText = "Total: ₹0";
 }
 
-// Bank Balance Calculator Logic
+// Bank Balance Calculator Logic (with expression support)
+function safeEval(expression) {
+  try {
+    return Function('"use strict"; return (' + expression + ')')();
+  } catch (error) {
+    return NaN;
+  }
+}
+
 function calculateBalance() {
-  let totalCash = parseFloat(document.getElementById("totalCash").value) || 0;
-  let openingBalance = parseFloat(document.getElementById("openingBalance").value) || 0;
-  let personalUse = parseFloat(document.getElementById("personalUse").value) || 0;
-  let cashWithdrawal = parseFloat(document.getElementById("cashWithdrawal").value) || 0;
-  let physicalCash = parseFloat(document.getElementById("physicalCash").value) || 0;
+  let totalCash = safeEval(document.getElementById("totalCash").value) || 0;
+  let openingBalance = safeEval(document.getElementById("openingBalance").value) || 0;
+  let personalUse = safeEval(document.getElementById("personalUse").value) || 0;
+  let cashWithdrawal = safeEval(document.getElementById("cashWithdrawal").value) || 0;
+  let physicalCash = safeEval(document.getElementById("physicalCash").value) || 0;
 
   let remainingBalance = (totalCash + openingBalance) - (personalUse + cashWithdrawal + physicalCash);
 
-  document.getElementById("bank-result").innerHTML = `<b>Remaining Balance: ₹${remainingBalance.toFixed(2)}</b>`;
+  if (isNaN(remainingBalance)) {
+    document.getElementById("bank-result").innerHTML = `<b>Please enter valid numbers or expressions.</b>`;
+  } else {
+    document.getElementById("bank-result").innerHTML = `<b>Remaining Balance: ₹${remainingBalance.toFixed(2)}</b>`;
+  }
 }
 
 function clearBalanceCalculator() {
